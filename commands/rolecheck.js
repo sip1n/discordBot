@@ -2,6 +2,7 @@ module.exports = {
     name: 'rolecheck',
     description: "Checks if you have role",
     execute(message, args){
+        
         //Gets the id of role named Mod from discord server (guild) that the message was sent to
         let role = message.guild.roles.cache.find(r => r.name === "Mod");
 
@@ -11,9 +12,7 @@ module.exports = {
         } else {
             message.channel.send('You dont have mod role yet so let me fix it');
             message.member.roles.add(role);
+
         }
-
-        
-
     }
 }

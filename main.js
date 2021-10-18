@@ -5,7 +5,8 @@ const {Client, Intents} = require('discord.js');
 const client = new Discord.Client({
      intents: [
          Intents.FLAGS.GUILDS,
-         Intents.FLAGS.GUILD_MESSAGES
+         Intents.FLAGS.GUILD_MESSAGES,
+         Intents.FLAGS.GUILD_MESSAGE_REACTIONS
         ] 
     });
 
@@ -43,6 +44,8 @@ client.on('messageCreate', (message) => {
         client.commands.get('maps').execute(message, args);
     } else if (command == 'rolecheck'){
         client.commands.get('rolecheck').execute(message, args);
+    } else if (command === 'embed'){
+    client.commands.get('embed').execute(message, args, Discord);
     }
 });
 
